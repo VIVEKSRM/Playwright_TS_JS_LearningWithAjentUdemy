@@ -27,8 +27,8 @@
     await userName.fill("tes test"); // or we can firt remove the text and then fill the text
       //await userName.clear(); or   //await userName.fill("");
       //await userName.fill("rahulshettyacademy");
-    // hard code wait for 5 seconds
-    await page.waitForTimeout(5000);
+    // hard code wait for 6 seconds
+    await page.waitForTimeout(6000);
     await userName.fill("rahulshettyacademy");
     await page.locator("[type='password']").fill("");
     await page.locator("[type='password']").fill("Learning@830$3mK2");
@@ -38,6 +38,7 @@
    const allTitles = await cardTitles.allTextContents(); // it has no default wait. it might return zero , playwright things it corect as zero element is there in array.
    
    console.log(allTitles);
+   await page.waitForTimeout(2000);
 
  });
  

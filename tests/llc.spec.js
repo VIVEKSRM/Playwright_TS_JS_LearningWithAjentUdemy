@@ -9,17 +9,14 @@ test('Playwright Special locators', async ({ page }) => {
     // await expect(page.getByLabel("Check me out if you Love IceCreams!")).not.toBeChecked(); // here we have used not.toBeChecked() method to check if the checkbox is not checked or not, it will return true if the checkbox is not checked, otherwise false.
     // await page.getByLabel("Check me out if you Love IceCreams!").uncheck(); // here we have used uncheck() method
     await page.getByLabel("Employed").check();
-    await page.getByLabel("Gender").selectOption("Female");
-    await page.getByPlaceholder("Password").fill("abc123");
+    await page.getByLabel("Gender").selectOption("Female");  // .selectOption("Female") the locator should be within the <select> HTML tag, so that it will select the option from the dropdown, if we use the locator outside the select tag, it will not work.
+    await page.getByPlaceholder("Password").fill("abc123"); // Placeholder is an attributes of the input tag, so we can use it to locate the input field, and then we can use fill() method to fill the input field with the given value.
     await page.getByRole("button", {name: 'Submit'}).click();
     await page.getByText("Success! The Form has been submitted successfully!.").isVisible();
     await page.getByRole("link",{name : "Shop"}).click();
     await page.locator("app-card").filter({hasText: 'Nokia Edge'}).getByRole("button").click();
 
     //locator(css)
-
-
-await page.get
 
 
 

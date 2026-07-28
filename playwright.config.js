@@ -3,7 +3,7 @@ const { devices } = require('@playwright/test');
 
 const config = {
   testDir: './tests',
-  testMatch: ['**/order-risk-based.spec.ts'],
+ // testMatch: ['**/order-risk-based.spec.ts'],
   retries: 0,
   
   /* Maximum time one test can run for. */
