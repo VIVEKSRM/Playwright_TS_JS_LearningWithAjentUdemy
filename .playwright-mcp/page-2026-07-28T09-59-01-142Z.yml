@@ -1,0 +1,40 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - link "Free Access to InterviewQues/ResumeAssistance/Material" [ref=f2e3] [cursor=pointer]:
+      - /url: https://rahulshettyacademy.com/documents-request
+    - link "Get Shortlisted by Recruiters - Take QA Skill Assessments on TechSmartHire" [ref=f2e4] [cursor=pointer]:
+      - /url: https://techsmarthire.com/
+  - generic [ref=f2e5]:
+    - heading [level=3] [ref=f2e6]
+    - generic [ref=f2e14]:
+      - generic [ref=f2e15]:
+        - generic [ref=f2e16]: "Username:"
+        - textbox "Username:" [ref=f2e17]
+      - generic [ref=f2e18]:
+        - generic [ref=f2e19]: "Password:"
+        - textbox "Password:" [ref=f2e20]
+      - generic [ref=f2e22]:
+        - generic [ref=f2e23] [cursor=pointer]:
+          - text: Admin
+          - radio "Admin" [checked] [ref=f2e24]
+        - generic [ref=f2e26] [cursor=pointer]:
+          - text: User
+          - radio "User" [ref=f2e27]
+      - combobox [ref=f2e30]:
+        - option "Student" [selected]
+        - option "Teacher"
+        - option "Consultant"
+      - generic [ref=f2e31]:
+        - generic [ref=f2e32]:
+          - checkbox "I Agree to the terms and conditions" [ref=f2e34]
+          - generic [ref=f2e35]:
+            - text: I Agree to the
+            - link "terms and conditions" [ref=f2e36] [cursor=pointer]:
+              - /url: "#"
+        - button "Sign In" [ref=f2e37] [cursor=pointer]
+      - paragraph [ref=f2e39]:
+        - text: (username is
+        - generic [ref=f2e40]: rahulshettyacademy
+        - text: and Password is
+        - generic [ref=f2e41]: Learning@830$3mK2
+        - text: )
