@@ -22,10 +22,4 @@ test('Playwright Special locators', async ({ page }) => {
 
 
 
-
-
-
-
-
-
 });

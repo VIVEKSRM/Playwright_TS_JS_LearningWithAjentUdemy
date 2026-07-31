@@ -21,7 +21,8 @@ const config = {
     headless : false,
     screenshot : 'on',
     trace : 'on',//off,on
-    
+    actionTimeout: 10 * 1000,
+    navigationTimeout: 30 * 1000,
     
     
   },
