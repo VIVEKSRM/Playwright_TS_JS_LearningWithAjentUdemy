@@ -47,9 +47,10 @@ When("I run {string}", function (string) {
     await this.cartPage.VerifyProductIsDisplayed(productName);
   });
 
-  When('Add {string} to Cart', async function (productName) {
+  When('Add {string} to Cart', { timeout: 30 * 1000 }, async function (productName) {
     // Write code here that turns the phrase above into concrete actions
      this.dashboardPage = poManager.getDashboardPage();
+     await this.page.locator('.card-body').first().waitFor({ state: 'visible' });
      await this.dashboardPage.searchProductAddCart(productName);
      await this.dashboardPage.navigateToCart();
   });

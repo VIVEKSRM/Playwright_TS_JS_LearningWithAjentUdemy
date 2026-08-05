@@ -26,9 +26,9 @@ test('@SP Place the order', async ({ page }) => {
     async route => {
       const response = await page.request.fetch(route.request());
       let body = JSON.stringify(fakePayLoadOrders);
-      route.fulfill(
+      route.fulfill(  // here we are sending the responce a fake responce.
         {
-          response,
+          response,   // if we will not send the response an d body then it will send the actual page only.
           body, 
 
         });

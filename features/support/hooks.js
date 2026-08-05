@@ -3,11 +3,11 @@ const playwright = require('@playwright/test');
 Before(async function () {
     // This hook will be executed before all scenarios
     console.log("i am first");
-    const browser = await playwright.chromium.launch({
+    this.browser = await playwright.chromium.launch({
       headless: false,
   });
-  const context = await browser.newContext();
-    this.page =  await context.newPage();
+  this.context = await this.browser.newContext();
+    this.page = await this.context.newPage();
   });
 
   AfterStep( async function ({result}) {
@@ -21,10 +21,9 @@ Before(async function () {
     }
   });
   After(async function () {
-    // Assuming this.driver is a selenium webdriver
     console.log("i am last");
-    
-    
-  });
+    await this.context?.close();
+    await this.browser?.close();
+    });
 
   
