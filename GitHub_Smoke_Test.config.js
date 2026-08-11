@@ -38,13 +38,9 @@ const config = {
         screenshot : 'on',
         video: 'retain-on-failure',
         ignoreHttpsErrors:true,
-        permissions:['geolocation'],
         actionTimeout: 10 * 1000,
         navigationTimeout: 30 * 1000,
-        
-        trace : 'on',//off,on
-       // ...devices['']
-     //   viewport : {width:720,height:720}
+        trace : 'on',
          }
 
     }
