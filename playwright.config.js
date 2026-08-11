@@ -8,8 +8,7 @@ const config = {
   
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
-  expect: {
-  
+  expect: {  
     timeout: 5000
   },
   
@@ -22,12 +21,8 @@ const config = {
     screenshot : 'on',
     trace : 'on',//off,on
     actionTimeout: 10 * 1000,
-    navigationTimeout: 30 * 1000,
-    
-    
+    navigationTimeout: 30 * 1000,    
   },
-
-
 };
 
 module.exports = config;
