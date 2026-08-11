@@ -30,4 +30,4 @@ jobs:
       run: |
         echo "## Playwright HTML Report" >> $GITHUB_STEP_SUMMARY
         echo "Download the report artifact named **playwright-report** from the Actions artifacts panel." >> $GITHUB_STEP_SUMMARY
-        echo "Artifacts: https://github.com/${GITHUB_REPOSITORY}/suites/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "Artifacts: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_STEP_SUMMARY
