@@ -18,7 +18,7 @@ const config = {
   use: {
 
     browserName : 'chromium',
-    headless : false,
+    headless: process.env.CI ? true : false,
     screenshot : 'on',
     trace : 'on',//off,on
     actionTimeout: 10 * 1000,
