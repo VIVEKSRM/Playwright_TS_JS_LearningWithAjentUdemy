@@ -23,12 +23,23 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test --reporter=html --config=GitHub_Smoke_Test.config.js --project=chrome tests/UIBasicstest.spec.js tests/seed.spec.ts
+    - name: Verify Playwright output directories
+      if: always()
+      run: |
+        echo "Listing report directory contents:"
+        ls -la playwright-report || true
+        echo "Listing Playwright test-results contents:"
+        find test-results -maxdepth 3 -type f | sort || true
+
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: playwright-report
-        path: playwright-report
+        name: playwright-artifacts
+        path: |
+          playwright-report/**
+          test-results/**
         retention-days: 30
+        if-no-files-found: warn
 
     - name: Deploy Playwright report to gh-pages
       if: always()
@@ -47,5 +58,7 @@ jobs:
         echo "The report is published to GitHub Pages:" >> $GITHUB_STEP_SUMMARY
         echo "https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo}/" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "If the Pages site isn't ready yet, download the report artifact from Actions artifacts:" >> $GITHUB_STEP_SUMMARY
-        echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "If the Pages site isn't not ready yet, download the artifact bundle from Actions artifacts:" >> $GITHUB_STEP_SUMMARY
+        echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The artifact will include trace ZIP files from test-results for failed runs." >> $GITHUB_STEP_SUMMARY
