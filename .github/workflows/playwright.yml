@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 jobs:
@@ -45,7 +45,7 @@ jobs:
         repo=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
         echo "## Playwright HTML Report" >> $GITHUB_STEP_SUMMARY
         echo "The report is published to GitHub Pages:" >> $GITHUB_STEP_SUMMARY
-        echo "https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo}/playwright-report/index.html" >> $GITHUB_STEP_SUMMARY
+        echo "https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo}/" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "If the Pages site isn't ready yet, download the report artifact from Actions artifacts:" >> $GITHUB_STEP_SUMMARY
         echo "https://github.com/${GITHUB_REPOSITORY}/suites/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
