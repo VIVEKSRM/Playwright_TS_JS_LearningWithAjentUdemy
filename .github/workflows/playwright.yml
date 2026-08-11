@@ -30,15 +30,13 @@ jobs:
         path: playwright-report
         retention-days: 30
 
-    - name: Upload report for GitHub Pages
+    - name: Deploy Playwright report to gh-pages
       if: always()
-      uses: actions/upload-pages-artifact@v1
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        path: playwright-report
-
-    - name: Deploy to GitHub Pages
-      if: always()
-      uses: actions/deploy-pages@v1
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./playwright-report
+        publish_branch: gh-pages
 
     - name: Publish Playwright report summary
       if: always()
