@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
     branches: [ main, master ]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   test:
     timeout-minutes: 60
@@ -25,9 +29,24 @@ jobs:
         name: playwright-report
         path: playwright-report
         retention-days: 30
+
+    - name: Upload report for GitHub Pages
+      if: always()
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: playwright-report
+
+    - name: Deploy to GitHub Pages
+      if: always()
+      uses: actions/deploy-pages@v1
+
     - name: Publish Playwright report summary
       if: always()
       run: |
+        repo=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
         echo "## Playwright HTML Report" >> $GITHUB_STEP_SUMMARY
-        echo "Download the report artifact named **playwright-report** from the Actions artifacts panel." >> $GITHUB_STEP_SUMMARY
-        echo "Artifacts: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_STEP_SUMMARY
+        echo "The report is published to GitHub Pages:" >> $GITHUB_STEP_SUMMARY
+        echo "https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo}/playwright-report/index.html" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "If the Pages site isn't ready yet, download the report artifact from Actions artifacts:" >> $GITHUB_STEP_SUMMARY
+        echo "https://github.com/${GITHUB_REPOSITORY}/suites/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
