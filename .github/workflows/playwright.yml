@@ -48,4 +48,4 @@ jobs:
         echo "https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo}/" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "If the Pages site isn't ready yet, download the report artifact from Actions artifacts:" >> $GITHUB_STEP_SUMMARY
-        echo "https://github.com/${GITHUB_REPOSITORY}/suites/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}/artifacts" >> $GITHUB_STEP_SUMMARY
