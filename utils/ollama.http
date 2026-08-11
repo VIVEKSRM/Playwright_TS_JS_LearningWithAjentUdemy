@@ -1,0 +1,23 @@
+### First message
+POST http://localhost:11434/api/chat
+Content-Type: application/json
+
+{
+  "model": "qwen:4b",
+  "messages": [
+    { "role": "system", "content": "You are a coding tutor." },
+    { "role": "user", "content": "Explain Playwright basics." }
+  ]
+}
+
+### Second message
+POST http://localhost:11434/api/chat
+Content-Type: application/json
+
+{
+  "model": "qwen:4b",
+  "messages": [
+    { "role": "system", "content": "You are a coding tutor." },
+    { "role": "user", "content": "Write a Playwright test for login." }
+  ]
+}
