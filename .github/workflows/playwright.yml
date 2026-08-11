@@ -37,6 +37,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./playwright-report
         publish_branch: gh-pages
+        cname: ''  # Add this if not using a custom domain
 
     - name: Publish Playwright report summary
       if: always()
