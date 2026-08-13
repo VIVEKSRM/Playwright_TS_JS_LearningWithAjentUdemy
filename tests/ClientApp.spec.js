@@ -87,6 +87,7 @@ test('@Webst Client App login other way', async ({ page }) => {
    .getByRole("button",{name:"Add to Cart"}).click();
  
    await page.locator("[routerlink*='cart']").click();
+   //await page.pause();
  
    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
  
